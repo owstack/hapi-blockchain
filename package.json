@@ -1,0 +1,54 @@
+{
+  "name": "@owstack/hapi-blockchain",
+  "version": "1.0.0",
+  "description": "Provides connectivity to bitcoin RPC, REST, and/or ZMQ data",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint .",
+    "coverage": "istanbul cover _mocha -- --no-timeouts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owstack/hapi-blockchain.git"
+  },
+  "keywords": [
+    "hapi",
+    "blockchain",
+    "bitcoin",
+    "litecoin",
+    "cash"
+  ],
+  "author": "Ian Patton <ian@owstack.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/owstack/hapi-blockchain/issues"
+  },
+  "homepage": "https://github.com/owstack/hapi-blockchain#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "documentation": "^6.3.3",
+    "eslint": "^4.19.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.2.0",
+    "proxyquire": "^2.1.0",
+    "should": "^13.2.3",
+    "sinon": "^7.2.3"
+  },
+  "dependencies": {
+    "@owstack/bch-lib": "^0.3.12",
+    "@owstack/btc-lib": "^0.1.13",
+    "@owstack/key-lib": "^0.0.33",
+    "@owstack/ltc-lib": "^0.1.12",
+    "@owstack/ows-common": "^0.0.16",
+    "errno": "^0.1.7",
+    "promise-retry": "^1.1.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "zeromq": "^5.1.0"
+  },
+  "peerDependencies": {
+    "hapi": ">= 17.0.0"
+  }
+}
