@@ -22,9 +22,7 @@ describe('Blockchain Lib', function () {
 
     const baseConfig = {
         currency: 'BTC',
-        connect: {
-            nodes: []
-        }
+        nodes: []
     };
 
     describe('@constructor', function () {
