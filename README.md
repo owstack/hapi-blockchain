@@ -1,5 +1,9 @@
 # hapi-blockchain
 
+[![NPM Package](https://img.shields.io/npm/v/@owstack/hapi-blockchain.svg?style=flat-square)](https://www.npmjs.org/package/@owstack/hapi-blockchain)[![Build Status](https://img.shields.io/travis/owstack/hapi-blockchain.svg?branch=master&style=flat-square)](https://travis-ci.org/owstack/hapi-blockchain)
+[![Coverage Status](https://img.shields.io/coveralls/owstack/hapi-blockchain.svg?style=flat-square)](https://coveralls.io/r/owstack/hapi-blockchain)
+
+
 This is a Hapi.js plugin for connecting to a cluster of Bitcoin, Bitcoin Cash, or Litecoin services via RPC.
 
 This plugin binds to the hapi server and emits events on incoming blocks, transactions, or address txids.
