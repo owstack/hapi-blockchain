@@ -3488,6 +3488,90 @@ describe('Blockchain Lib', function () {
         });
     });
 
+    describe('#estimateSmartFee', function () {
+        it('will give rpc error', async function () {
+            const bitcoind = new Blockchain(baseConfig);
+            const rpcError = new RPCError('error');
+            rpcError.code = -1;
+
+            const estimateSmartFee = sinon.stub().rejects(rpcError);
+            bitcoind.nodes.push({
+                client: {
+                    estimateSmartFee: estimateSmartFee
+                }
+            });
+            let err;
+            try {
+                await bitcoind.estimateSmartFee(1);
+            } catch (e) {
+                err = e;
+            }
+            should.exist(err);
+            err.should.be.an.instanceof(errors.RPCError);
+        });
+        it('will call client estimateSmartFee and give result', async function () {
+            const bitcoind = new Blockchain(baseConfig);
+            const estimateSmartFee = sinon.stub().resolves(-1);
+            bitcoind.nodes.push({
+                client: {
+                    estimateSmartFee: estimateSmartFee
+                }
+            });
+            let err;
+            let feesPerKb;
+            try {
+                feesPerKb = await bitcoind.estimateSmartFee(1);
+            } catch (e) {
+                err = e;
+            }
+            should.not.exist(err);
+            feesPerKb.should.equal(-1);
+        });
+    });
+
+    describe('#verifyMessage', function () {
+        const address = 'n1ZCYg9YXtB5XCZazLxSmPDa8iwJRZHhGx';
+        const text = 'hello, world';
+        const signatureString = 'H/DIn8uA1scAuKLlCx+/9LnAcJtwQQ0PmcPrJUq90aboLv3fH5fFvY+vmbfOSFEtGarznYli6ShPr9RXwY9UrIY=';
+
+        it('will give rpc error', async function () {
+            const bitcoind = new Blockchain(baseConfig);
+            const rpcError = new RPCError('error');
+            rpcError.code = -1;
+
+            const verifyMessage = sinon.stub().rejects(rpcError);
+            bitcoind.nodes.push({
+                client: {verifyMessage}
+            });
+            let err;
+            try {
+                await bitcoind.verifyMessage(address, signatureString, text);
+            } catch (e) {
+                err = e;
+            }
+            should.exist(err);
+            err.should.be.an.instanceof(errors.RPCError);
+        });
+        it('will call client verifyMessage and give result', async function () {
+            const bitcoind = new Blockchain(baseConfig);
+            const verifyMessage = sinon.stub().resolves(true);
+            bitcoind.nodes.push({
+                client: {
+                    verifyMessage
+                }
+            });
+            let err;
+            let response;
+            try {
+                response = await bitcoind.verifyMessage(address, signatureString, text);
+            } catch (e) {
+                err = e;
+            }
+            should.not.exist(err);
+            response.should.equal(true);
+        });
+    });
+
     describe('#sendTransaction', function () {
         const tx = btcLib.Transaction(txhex);
         it('will give rpc error', async function () {
