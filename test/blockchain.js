@@ -30,10 +30,6 @@ describe('Blockchain Lib', function () {
             const bitcoind = new Blockchain(baseConfig);
             should.exist(bitcoind);
         });
-        it('will create an instance without `new`', function () {
-            const bitcoind = Blockchain(baseConfig);
-            should.exist(bitcoind);
-        });
         it('will init caches', function () {
             const bitcoind = new Blockchain(baseConfig);
             should.exist(bitcoind.utxosCache);
