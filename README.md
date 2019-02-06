@@ -5,7 +5,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/owstack/hapi-blockchain.svg?style=flat-square)](https://coveralls.io/r/owstack/hapi-blockchain)
 
 
-This is a Hapi.js plugin for connecting to a cluster of Bitcoin, Bitcoin Cash, or Litecoin services via RPC.
+This is a Hapi.js plugin for connecting to a cluster of Bitcoin, Bitcoin Cash, or Litecoin services via RPC and ZeroMQ.
 
 This plugin binds to the hapi server and emits events on incoming blocks, transactions, or address txids.
 
@@ -14,6 +14,8 @@ This plugin also provides an API of helper functions for working with blockchain
 ### configuration
 
 This plugin expects a configuration object with the following properties. Supported currency options: 'BTC', 'BCH', or 'LTC'
+
+zmqpubrawtx and zmqpubhashblock are required to be the same value.
 
 ```json
 {
@@ -24,7 +26,9 @@ This plugin expects a configuration object with the following properties. Suppor
             "host": "127.0.0.1",
             "port": 12345,
             "user": "someUsername",
-            "pass": "somePassword"
+            "pass": "somePassword",
+            "zmqpubrawtx": "tcp://127.0.0.1:28332",
+            "zmqpubhashblock": "tcp://127.0.0.1:28332"
         }
     ]
 }
