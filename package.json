@@ -1,6 +1,6 @@
 {
   "name": "@owstack/hapi-blockchain",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Provides connectivity to bitcoin RPC, REST, and/or ZMQ data",
   "main": "index.js",
   "scripts": {
@@ -43,6 +43,7 @@
     "@owstack/ltc-lib": "^0.1.12",
     "@owstack/ows-common": "^0.0.16",
     "errno": "^0.1.7",
+    "lru-cache": "^5.1.1",
     "promise-retry": "^1.1.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
