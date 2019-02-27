@@ -23,3 +23,5 @@ module.exports.plugin = {
         });
     }
 };
+
+module.exports.Blockchain = Blockchain;
