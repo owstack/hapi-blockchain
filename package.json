@@ -1,6 +1,6 @@
 {
   "name": "@owstack/hapi-blockchain",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Provides connectivity to bitcoin RPC, REST, and/or ZMQ data",
   "main": "index.js",
   "scripts": {
@@ -39,7 +39,7 @@
   "dependencies": {
     "@owstack/bch-lib": "^0.3.17",
     "@owstack/btc-lib": "^0.1.19",
-    "@owstack/key-lib": "^0.0.33",
+    "@owstack/key-lib": "^0.0.37",
     "@owstack/ltc-lib": "^0.1.17",
     "@owstack/ows-common": "^0.0.16",
     "errno": "^0.1.7",
