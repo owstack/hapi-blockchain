@@ -1,6 +1,6 @@
 {
   "name": "@owstack/hapi-blockchain",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Provides connectivity to bitcoin RPC, REST, and/or ZMQ data",
   "main": "index.js",
   "scripts": {
